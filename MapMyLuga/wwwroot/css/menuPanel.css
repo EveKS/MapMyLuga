@@ -1,0 +1,128 @@
+﻿.menu-right {
+    right: 0;
+    z-index: 3;
+}
+
+.modal-open .menu-right {
+    transition: 0.0s;
+    margin-right: 17px;
+}
+
+.first-menu-element {
+    padding: 15px;
+}
+
+.menu-head-left {
+    margin-left: 15px;
+    float: left;
+}
+
+.menu-title {
+    padding-bottom: 36px;
+}
+
+.menu-check {
+    height: 31px;
+}
+
+.menu-col-1 {
+    float: left;
+    width: 20%;
+}
+
+.menu-col-2 {
+    width: 80%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+}
+
+    .switch input {
+        display: none;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #808080;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #e84545;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #e84545;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 20px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.menu-date-selector {
+    margin-top: 15px;
+}
+
+.btn-date {
+    border-radius: 2px;
+    height: 27px;
+    margin-left: 5px;
+    padding: 3px 10px;
+    width: 75px;
+}
+
+.menu-date {
+    padding-right: 5px;
+    width: 60px;
+}
+
+.menu-date-input {
+    width: 50%;
+    text-align: right;
+}
+
+.menu-panel {
+    min-height: 30px;
+    margin: 15px 0 0 0;
+    background-color: #e84545;
+}
+
+    .menu-panel h4 {
+        margin: 0px;
+        padding: 10px 5px;
+        text-align: center;
+        color: white;
+        font: bold;
+    }

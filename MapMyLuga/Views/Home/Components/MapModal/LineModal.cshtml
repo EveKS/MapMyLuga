@@ -1,0 +1,294 @@
+﻿@model MarkerModel
+
+<div id="getLineInfo" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header map-modal-head">
+                <button type="button" class="close map-modal-close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title text-center">Информация об отметке</h4>
+            </div>
+            <form id="markerMessageFormLine" name="markerMessageForm" method="post" asp-action="Post" asp-controller="Home" enctype="multipart/form-data">
+                <div class="modal-body map-modal">
+                    <input id="UserNameLine" type="text" name="UserName" hidden="hidden" value="@(User.Identity.Name)" autocomplete="off" />
+                    <input id="MarcerCoordinateLine" type="text" class="form-control" name="MarcerCoordinate" hidden="hidden" autocomplete="off" />
+                    <div class="input-group w100pr">
+                        <span class="input-group-addon w100 map-modal-group-name">Группа:</span>
+                        <select class="form-control map-modal-group-input" id="MarkerGroupIdLine" name="MarkerGroupId" autocomplete="off">
+                            @foreach (MarkerGroup item in ViewBag.MarkerGroup)
+                            {
+                                <option value="@item.MarkerGroupId">@item.GroupName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="input-group w100pr">
+                        <input asp-for="MarkerTitle" type="text" class="form-control map-modal-title" id="MarkerTitleLine" autocomplete="off" placeholder="Заголовок" />
+                        <span asp-validation-for="MarkerTitle"></span>
+                    </div>
+                    <div class="input-group w100pr">
+                        <textarea asp-for="MarkerDescription" rows="6" class="form-control map-modal-description" id="MarkerDescriptionLine" autocomplete="off" placeholder="Описание"></textarea>
+                        <span asp-validation-for="MarkerDescription"></span>
+                    </div>
+                    <span class="help-block">
+                        Выберите одно или несколько изображений
+                    </span>
+                    <div class="input-group w100pr">
+                        <label class="input-group-btn">
+                            <span class="btn  btn-danger w100">
+                                Выбрать&hellip; <input type="file" style="display: none;" asp-for="UploadedFiles" id="UploadedFilesLine" name="UploadedFiles[]" multiple autocomplete="off" />
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" id="UploadedFilesTextLine" autocomplete="off" readonly>
+                    </div>
+                    <span asp-validation-for="UploadedFiles"></span>
+                </div>
+                <div class="center-block text-center">
+                    <ul id="colorpickerLine" class="pagination">
+                        <li>
+                            <span class="btn btn-default" _color="#EEE9E9">&nbsp;</span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEE5DE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEDFCC"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EED5B7"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EECBAD"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EECFA1"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEE9BF"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEE8CD"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEEEE0"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#E0EEE0"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEE0E5"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EED5D2"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#E0EEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#7A67EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#436EEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#0000EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#1C86EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#5CACEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#00B2EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#7EC0EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#A4D3EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#B9D3EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#BCD2EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#B2DFEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#D1EEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#AEEEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#8EE5EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#00E5EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#00EEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#8DEEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#76EEC6"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#B4EEB4"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#4EEE94"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#90EE90"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#00EE76"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#00EE00"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#76EE00"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#B3EE3A"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#BCEE68"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEE685"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEDC82"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEEED1"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEEE00"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEC900"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEB422"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEAD0E"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEB4B4"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE6363"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE7942"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEC591"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EED8AE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE9A49"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE7621"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE2C2C"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE3B3B"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE8262"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#CD8162"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE9A00"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE7600"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE6A50"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE5C42"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE4000"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE0000"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE1289"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE6AA7"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEA9B8"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEA2AD"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE799F"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE30A7"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE3A8C"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE00EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EE7AE9"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EEAEEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#D15FEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#B23AEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#912CEE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#9F79EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#EED2EE"></span>
+                        </li>
+                        <li>
+                            <span class="btn btn-default" _color="#4F4F4F"></span>
+                        </li>
+                    </ul>
+                    <input id="ObjectColorLine" name="ObjectColor"
+                           type="text" hidden="hidden"
+                           autocomplete="off" />
+                </div>
+                <div class="modal-bottom">
+                    <input type="submit" data-loading-text="Идет отправка..." class="btn btn-block btn-danger but_btn" id="submitLine" value="Отправить" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

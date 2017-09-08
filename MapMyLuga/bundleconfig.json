@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css",
+      "wwwroot/css/addFile.css",
+      "wwwroot/css/InfoMapPanel.css",
+      "wwwroot/css/main.css",
+      "wwwroot/css/media.css",
+      "wwwroot/css/menuPanel.css",
+      "wwwroot/css/messageNavBar.css"
+    ]
+  }
+]

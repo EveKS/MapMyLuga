@@ -1,0 +1,9 @@
+﻿@model  IEnumerable<HomeIndexViewModel>
+<script id="markers-script-id">
+    window.onload = function () {
+        @foreach (HomeIndexViewModel m in Model)
+        {
+            @:addMarker('@Html.Raw(m?.MarkerMessageId)', '@Html.Raw(m?.Latitude)', '@Html.Raw(m?.Longitude)', '@Html.Raw(m?.Title)', '@Html.Raw(m?.ObjectColor)');
+        }
+    }
+</script>

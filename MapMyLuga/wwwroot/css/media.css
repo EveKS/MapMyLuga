@@ -1,0 +1,166 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .search-result {
+        display: none;
+    }
+
+    #about {
+        display: none;
+    }
+
+    #contact {
+        display: none;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+    /*Disable Animation on Mobile Devices*/
+    .animated {
+        /*CSS transitions*/
+        -o-transition-property: none !important;
+        -moz-transition-property: none !important;
+        -webkit-transition-property: none !important;
+        transition-property: none !important;
+        /*CSS transforms*/
+        -o-transform: none !important;
+        -moz-transform: none !important;
+        -ms-transform: none !important;
+        -webkit-transform: none !important;
+        transform: none !important;
+        /*CSS animations*/
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation: none !important;
+        animation: none !important;
+    }
+
+    #about {
+        display: block;
+    }
+
+    #contact {
+        display: block;
+    }
+
+    .btn-logoff {
+        margin-right: 15px;
+    }
+
+    #meassage-table tr td:nth-child(4), th:nth-child(4) {
+        display: none;
+    }
+
+    .th-width {
+        width: 30%;
+    }
+
+    .nav-pad-right {
+        margin: 15px;
+    }
+
+    /*.navbar .nav-collapse {
+        padding: 0;
+    }
+
+        .navbar .nav-collapse .navbar-form {
+            margin: 0;
+        }
+
+    .nav-collapse > li {
+        float: none;
+    }
+
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+
+        .navbar.navbar-default .nav-collapse.in,
+        .navbar.navbar-inverse .nav-collapse.in {
+            transform: translate(0px,0px);
+        }
+
+        .navbar.navbar-default .nav-collapse.slide-down,
+        .navbar.navbar-inverse .nav-collapse.slide-down {
+            transform: translate(0px,-100%);
+        }
+
+        .navbar.navbar-default .nav-collapse.in.slide-down,
+        .navbar.navbar-inverse .nav-collapse.in.slide-down {
+            transform: translate(0px,0px);
+        }*/
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content-image {
+        width: 100%;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    #MarkerDescription {
+        height: 5em;
+    }
+
+    .w100 {
+        width: 85px;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    #meassage-table tr td:nth-child(1), th:nth-child(1) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 370px) {
+    #pac-input {
+        max-width: 270px;
+    }
+
+    #meassage-table tr td:nth-child(2), th:nth-child(2) {
+        display: none;
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    #MarkerDescription {
+        height: 5em;
+    }
+
+    .w100 {
+        width: 80px;
+    }
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}

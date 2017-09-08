@@ -1,0 +1,58 @@
+﻿<input id="pac-input" class="controls" type="text" placeholder="Введите адрес:" />
+<div id="panel">
+    <div id="panel-content" class="info-map-panel left-panel">
+    </div>
+</div>
+<div id="menu">
+    <div id="menu-content" class="info-map-panel menu-right">
+        <div class="head-panel">
+            <div class="exit-panel menu-head-left" id="btn-exit-menu">
+                <span class="glyphicon glyphicon-remove"></span>
+            </div>
+        </div>
+        <div class="title-panel menu-title">
+            <h3>Фильтры</h3>
+        </div>
+        <div class="columns first-menu-element">
+            <div class="menu-col-1">
+                <label class="switch">
+                    <input id="menu-input" type="checkbox" checked="checked" autocomplete="off" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="menu-col-2 menu-check">Маркеры</div>
+            <div class="menu-col-1">
+                <label class="switch">
+                    <input id="line-menu-input" type="checkbox" autocomplete="off" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="menu-col-2 menu-check">Линии</div>
+            <div class="menu-date-selector input-group">
+                <span class="menu-date input-group-addon">Дата:</span>
+                <input type="text" id="datepicker" class="menu-date-input form-control" autocomplete="off" />
+                <span id="datepicker-one" class="btn btn-sm btn-danger btn-date input-group-addon">выбрать</span>
+            </div>
+            <div class="menu-panel">
+                <h4>Выбрать даты:</h4>
+            </div>
+            <div class="input-group">
+                <span class="menu-date input-group-addon">От:</span>
+                <input type="text" id="datepicker-begin" class="menu-date-input form-control" autocomplete="off" />
+                <span class="btn-date input-group-addon"></span>
+            </div>
+            <div class="input-group">
+                <span class="menu-date input-group-addon">До:</span>
+                <input type="text" id="datepicker-end" class="menu-date-input form-control" autocomplete="off" />
+                <span id="datepicker-more" class="btn btn-sm btn-danger btn-date input-group-addon">выбрать</span>
+            </div>
+            <div class="menu-panel">
+                <h4>Группы:</h4>
+            </div>
+            <div class="input-group w100pr">
+                @Html.DropDownList("MarkerGroupId", ViewBag.Groups as IEnumerable<SelectListItem>, "Все", new { @class = "form-control", @id = "menu-group-id", autocomplete = "off" })
+                <span class="btn btn-sm btn-danger btn-date input-group-addon" id = "menu-group-span">выбрать</span>
+            </div>
+        </div>
+    </div>
+</div>

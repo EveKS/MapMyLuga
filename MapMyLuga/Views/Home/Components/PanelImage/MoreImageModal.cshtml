@@ -1,0 +1,20 @@
+﻿@model MarkerMessageViewModel
+@{
+    var imageCount = Model.FilesPath.Count;
+}
+
+<div id="image-modal" class="modal fade image-modal" tabindex="-1">
+    @{ var num = 1;}
+    @foreach (var image in @Model.FilesPath)
+        {
+        <div class="image-slider image-fade">
+            <div class="image-numbertext">@($"{num++} / {imageCount}")</div>
+            <span class="close close-modal" data-dismiss="modal" aria-hidden="true">&times;</span>
+            <img class="modal-content modal-content-image" src="@image" />
+            <div class="image-caption">@Model.Title</div>
+        </div>
+        }
+
+    <a id="image-prev" class="prev image-prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a id="image-next" class="next image-next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

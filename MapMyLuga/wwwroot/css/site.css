@@ -1,0 +1,51 @@
+﻿body {
+    font-size: 16px;
+    /*min-width: 320px;*/
+}
+
+.validation-summary-errors li {
+    color: red;
+    font-size: 11px;
+    height: 11px !important;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#colorpicker,
+#colorpickerLine {
+    margin: 0;
+    padding: 0 5px;
+}
+
+    #colorpicker > li,
+    #colorpickerLine > li {
+        display: inline-block;
+        *display: inline; /*IE7*/
+        *zoom: 1; /*IE7*/
+    }
+
+        #colorpicker > li > span,
+        #colorpickerLine > li > span {
+            width: 25px;
+            height: 25px;
+        }
+
+.message-object-color {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    color: black;
+}
+
+.btn-hashtag {
+    padding: 0;
+}
+
+    .btn-hashtag:visited {
+        color: #337ab7;
+    }

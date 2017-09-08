@@ -1,0 +1,15 @@
+﻿@model MarkerModel
+
+<div class="map-container">
+    <div class="row map-row">
+        <div id="map" class="col-md-12">
+        </div>
+    </div>
+</div>
+
+@*
+    HTML-код модального окна
+*@
+
+<vc:map-modal model="@Model" component-name=""></vc:map-modal>
+<vc:map-modal model="@Model" component-name="line"></vc:map-modal>

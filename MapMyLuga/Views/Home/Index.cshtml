@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<vc:map-menu></vc:map-menu>
+<vc:map-view></vc:map-view>
+<vc:add-markers></vc:add-markers>
+
+<section style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 map_message">
+                <p id="message">
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/googleMap.js" asp-append-version="true"></script>
+    <script src="~/js/AddLine.js" asp-append-version="true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArhXIMVjmk7mp9wmVNYsUuTdCcWn7bycE&libraries=places&callback=initMap" async defer asp-append-version="true"></script>
+}
