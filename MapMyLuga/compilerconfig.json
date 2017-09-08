@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "wwwroot/js/addFile.es5.js",
+    "inputFile": "wwwroot/js/addFile.js"
+  },
+  {
+    "outputFile": "wwwroot/js/AddLine.es5.js",
+    "inputFile": "wwwroot/js/AddLine.js"
+  },
+  {
+    "outputFile": "wwwroot/js/googleMap.es5.js",
+    "inputFile": "wwwroot/js/googleMap.js"
+  },
+  {
+    "outputFile": "wwwroot/js/InfoMapPanel.es5.js",
+    "inputFile": "wwwroot/js/InfoMapPanel.js"
+  },
+  {
+    "outputFile": "wwwroot/js/jquery-ui.min.es5.js",
+    "inputFile": "wwwroot/js/jquery-ui.min.js"
+  },
+  {
+    "outputFile": "wwwroot/js/map.min.es5.js",
+    "inputFile": "wwwroot/js/map.min.js"
+  },
+  {
+    "outputFile": "wwwroot/js/menuPanel.es5.js",
+    "inputFile": "wwwroot/js/menuPanel.js"
+  },
+  {
+    "outputFile": "wwwroot/js/messageNavBar.es5.js",
+    "inputFile": "wwwroot/js/messageNavBar.js"
+  },
+  {
+    "outputFile": "wwwroot/js/sendAjax.es5.js",
+    "inputFile": "wwwroot/js/sendAjax.js"
+  },
+  {
+    "outputFile": "wwwroot/js/site.es5.js",
+    "inputFile": "wwwroot/js/site.js"
+  }
+]

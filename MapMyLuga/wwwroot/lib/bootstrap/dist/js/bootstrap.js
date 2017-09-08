@@ -227,17 +227,17 @@ if (typeof jQuery === 'undefined') {
     var $parent = this.$element.closest('[data-toggle="buttons"]')
 
     if ($parent.length) {
-      var $input = this.$element.find('input')
-      if ($input.prop('type') == 'radio') {
-        if ($input.prop('checked')) changed = false
+      var inp = this.$element.find('input')
+      if (inp.prop('type') == 'radio') {
+        if (inp.prop('checked')) changed = false
         $parent.find('.active').removeClass('active')
         this.$element.addClass('active')
-      } else if ($input.prop('type') == 'checkbox') {
-        if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false
+      } else if (inp.prop('type') == 'checkbox') {
+        if ((inp.prop('checked')) !== this.$element.hasClass('active')) changed = false
         this.$element.toggleClass('active')
       }
-      $input.prop('checked', this.$element.hasClass('active'))
-      if (changed) $input.trigger('change')
+      inp.prop('checked', this.$element.hasClass('active'))
+      if (changed) inp.trigger('change')
     } else {
       this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
       this.$element.toggleClass('active')

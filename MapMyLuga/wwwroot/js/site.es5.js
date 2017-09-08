@@ -1,15 +1,14 @@
-﻿$(function () {
+﻿'use strict';
+
+$(function () {
     $("#findMarkInput").on('input', function () {
         var $item = $(this),
             value = $item.val();
 
         if (value !== '' && value !== ' ') {
-            $("#findMark")
-                .prop('disabled', false);
-        }
-        else {
-            $("#findMark")
-                .prop('disabled', true);
+            $("#findMark").prop('disabled', false);
+        } else {
+            $("#findMark").prop('disabled', true);
         }
     });
 
@@ -108,14 +107,14 @@
     var colorpicker = $('#colorpicker>li>span');
     for (var i = 0; i < colorpicker.length; i++) {
         var colorBtn = colorpicker.eq(i);
-        var color = colorBtn
-            .attr('_color');
+        var color = colorBtn.attr('_color');
 
         colorBtn.css('background-color', color);
     }
 
     colorpicker.on('click', function (e) {
-        var color, target = $(e.target) || $(e.srcElement);
+        var color,
+            target = $(e.target) || $(e.srcElement);
 
         colorpicker.css('border', '1px solid #ddd');
         if (color = target.attr('_color')) {
@@ -128,14 +127,14 @@
     var colorpickerLine = $('#colorpickerLine>li>span');
     for (var i = 0; i < colorpickerLine.length; i++) {
         var colorBtn = colorpickerLine.eq(i);
-        var color = colorBtn
-            .attr('_color');
+        var color = colorBtn.attr('_color');
 
         colorBtn.css('background-color', color);
     }
 
     colorpickerLine.on('click', function (e) {
-        var color, target = $(e.target) || $(e.srcElement);
+        var color,
+            target = $(e.target) || $(e.srcElement);
 
         colorpickerLine.css('border', '1px solid #ddd');
         if (color = target.attr('_color')) {
@@ -144,7 +143,6 @@
             //console.log($('#ObjectColorLine').val());
         }
     });
-
 
     /*
         SORT
@@ -160,17 +158,17 @@
     //}).change();
 
     $("#message-input").keyup(function () {
-        var
-            messages = $('.message-container'),
-            title, description, group, text, i;
+        var messages = $('.message-container'),
+            title,
+            description,
+            group,
+            text,
+            i;
 
         for (i = 0; i < messages.length; i++) {
-            if (title = messages.eq(i).find('.message-title'))
-                text = title.text();
-            if (description = messages.eq(i).find('.message-description'))
-                text += description.text();
-            if (group = messages.eq(i).find('.message-group'))
-                text += group.text();
+            if (title = messages.eq(i).find('.message-title')) text = title.text();
+            if (description = messages.eq(i).find('.message-description')) text += description.text();
+            if (group = messages.eq(i).find('.message-group')) text += group.text();
 
             if (text.length > 0) {
                 var filter = new RegExp($("#message-input").val(), 'i');
@@ -211,15 +209,18 @@
     }
 
     function messageSort(sortBy, id) {
-        var
-            messages, messagesF, messagesS, i,
-            switching = true, shouldSwitch,
+        var messages,
+            messagesF,
+            messagesS,
+            i,
+            switching = true,
+            shouldSwitch,
             child = id.children('i');
 
         while (switching) {
             switching = false;
             messages = $('.message-container');
-            for (i = 0; i < (messages.length - 1); i++) {
+            for (i = 0; i < messages.length - 1; i++) {
                 shouldSwitch = false;
                 messagesF = messages.eq(i).find(sortBy).text();
                 messagesS = messages.eq(i + 1).find(sortBy).text();
@@ -251,9 +252,10 @@
                 }
             }
             if (shouldSwitch) {
-                (messages)[i].parentNode.insertBefore(messages[i + 1], messages[i]);
+                messages[i].parentNode.insertBefore(messages[i + 1], messages[i]);
                 switching = true;
             }
         }
     }
 });
+

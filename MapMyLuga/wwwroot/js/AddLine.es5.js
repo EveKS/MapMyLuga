@@ -1,5 +1,7 @@
-﻿var
-    polygons = {}, isClicable = [];
+﻿'use strict';
+
+var polygons = {},
+    isClicable = [];
 
 function AddPolygons() {
     var poly;
@@ -72,8 +74,8 @@ function AddPolygons() {
 
     /* ОТПРАВКА ИНФОРМАЦИИ О ЛИНИИ НА СЕРВЕР */
     CreateMenu.prototype.removeVertex = function () {
-        var
-            coordinate, path = this.get('path'),
+        var coordinate,
+            path = this.get('path'),
             vertex = this.get('vertex'),
             menu = this;
 
@@ -83,20 +85,17 @@ function AddPolygons() {
 
         if (this.get('poly')) {
             lineAjaxAppend();
-        }
-        else {
+        } else {
             path.removeAt(vertex);
         }
 
         this.close();
     };
 
-    var
-        listener, isClicable = true;
-    var leftSendMenu = new CreateMenu('delete-menu delete-menu-left',
-        '<i class="fa fa-check" aria-hidden="true"></i>');
-    var rightDeleteMenu = new CreateMenu('delete-menu delete-menu-right',
-        '<i class="fa fa-times" aria-hidden="true"></i>');
+    var listener,
+        isClicable = true;
+    var leftSendMenu = new CreateMenu('delete-menu delete-menu-left', '<i class="fa fa-check" aria-hidden="true"></i>');
+    var rightDeleteMenu = new CreateMenu('delete-menu delete-menu-right', '<i class="fa fa-times" aria-hidden="true"></i>');
 
     function CreatePoli() {
         poly = new google.maps.Polyline({
@@ -117,11 +116,9 @@ function AddPolygons() {
                 return;
             }
 
-            leftSendMenu
-                .open(map, poly.getPath(), e.vertex, poly);
-            rightDeleteMenu
-                .open(map, poly.getPath(), e.vertex);
-            
+            leftSendMenu.open(map, poly.getPath(), e.vertex, poly);
+            rightDeleteMenu.open(map, poly.getPath(), e.vertex);
+
             isClicable = false;
         });
     }
@@ -138,9 +135,7 @@ function AddPolygons() {
             e.preventDefault();
             e.stopPropagation();
 
-            var
-                fileUpload, data, inp,
-                $form, formData, date;
+            var fileUpload, data, inp, $form, formData, date;
 
             data = new FormData();
 
@@ -161,7 +156,7 @@ function AddPolygons() {
             date = new Date();
             data.append('DataAdd', date);
             CreateLine(data, poly);
-        });        
+        });
     }
 
     function CreateLine(data, poly) {
@@ -175,7 +170,7 @@ function AddPolygons() {
             processData: false,
             data: data,
             dataType: 'json',
-            success: function (respond) {
+            success: function success(respond) {
                 if (typeof respond.error === 'undefined') {
                     if (respond !== '') {
                         $('#colorpickerLine>li>span').css('border', '1px solid #ddd');
@@ -193,11 +188,11 @@ function AddPolygons() {
                     console.log(respond.error);
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function error(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
             }
         }).always(function () {
-            btn.button('reset')
+            btn.button('reset');
         });
     }
 
@@ -232,7 +227,7 @@ function addLine(markerId, title, coordinates, polyPath, color) {
         strokeOpacity: 0.8,
         strokeWeight: 4,
         id: markerId,
-        title: title,
+        title: title
     });
 
     if (polyPath) {
@@ -254,3 +249,4 @@ function addLine(markerId, title, coordinates, polyPath, color) {
     //    alert(polygons[markerId].getPath().getArray().toString());
     //});
 }
+

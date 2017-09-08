@@ -7,9 +7,10 @@ function addMarker(markerId, latitude, longitude, title, color) {
         coordinate, pinImage,
         pinColor = "#FE7569";
 
-    if (typeof color !== undefined && color !== null
-        && color !== '' && color !== 'undefined') {
+    if (typeof color !== undefined && color !== null && color !== '' && color !== 'undefined')
+    {
         pinColor = color;
+        //console.log(color);
     }
 
     function pinSymbol(color) {
@@ -904,7 +905,7 @@ function createMark($form, formData) {
         }
     }).always(function () {
         btn.button('reset')
-    });
+        });
 
     return false;
 }
@@ -919,11 +920,11 @@ $('#markerMessageForm').on('submit', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
-    var $form = $(this),
+    var $form = $(this), date, inp,
         formData = new FormData($form.get(0));
 
-    $input = $("#UploadedFiles");
-    $.each($input.prop('files'), function (key, value) {
+    inp = $("#UploadedFiles");
+    $.each(inp.prop('files'), function (key, value) {
         if (value.type.match(/(.png)|(.jpeg)|(.jpg)|(.gif)$/i)) {
             formData.append('UploadedFiles', value);
         }

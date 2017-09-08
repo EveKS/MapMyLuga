@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Components\Map\" />
     <Folder Include="Models\Map\" />
-    <Folder Include="wwwroot\" />
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModel\" />
