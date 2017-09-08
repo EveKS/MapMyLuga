@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Net.Http.Headers;
 
 namespace MapMyLuga
 {
@@ -93,7 +94,16 @@ namespace MapMyLuga
 
             app.UseStaticFiles();
             app.UseResponseCompression();
-            app.UseAuthentication();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = content =>
+                {
+                    var time = 7 * 24 * 60 * 60;
+
+                    content.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={time}";
+                    content.Context.Response.Headers[HeaderNames.Expires] = DateTime.UtcNow.AddDays(7).ToString("R"); // Format RFC1123
+                }
+            });
 
             app.UseMvc(routes =>
             {
