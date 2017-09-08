@@ -10,6 +10,8 @@
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="Services\" />
+    <Folder Include="wwwroot\files\" />
   </ItemGroup>
 
   <ItemGroup>

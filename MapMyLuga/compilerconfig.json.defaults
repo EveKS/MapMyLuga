@@ -38,12 +38,12 @@
     "css": {
       "enabled": true,
       "termSemicolons": true,
-      "gzip": false
+      "gzip": true
     },
     "javascript": {
       "enabled": true,
       "termSemicolons": true,
-      "gzip": false
+      "gzip": true
     }
   }
 }
