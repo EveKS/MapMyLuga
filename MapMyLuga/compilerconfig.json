@@ -20,10 +20,6 @@
     "inputFile": "wwwroot/js/jquery-ui.min.js"
   },
   {
-    "outputFile": "wwwroot/js/map.min.es5.js",
-    "inputFile": "wwwroot/js/map.min.js"
-  },
-  {
     "outputFile": "wwwroot/js/menuPanel.es5.js",
     "inputFile": "wwwroot/js/menuPanel.js"
   },

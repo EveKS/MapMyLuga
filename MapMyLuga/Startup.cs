@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Net.Http.Headers;
+using Controllers.Services.File;
 
 namespace MapMyLuga
 {
@@ -30,7 +31,7 @@ namespace MapMyLuga
         public void ConfigureServices(IServiceCollection services)
         {
             #region Transient
-
+            services.AddTransient<IFileService, FileService>();
             #endregion
 
             #region DB connection

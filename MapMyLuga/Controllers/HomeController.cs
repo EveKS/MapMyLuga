@@ -17,6 +17,7 @@ using MapMyLuga.ViewModels.HomeViewModel;
 using System.Text.RegularExpressions;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Controllers.Services.File;
 
 namespace MapMyLuga.Controllers
 {
@@ -27,15 +28,20 @@ namespace MapMyLuga.Controllers
         private readonly UserManager<User> _userManager;
         private IHostingEnvironment _appEnvironment;
 
+        private IFileService _fileService;
+
 
         public HomeController(ApplicationContext context,
             SignInManager<User> signInManager, UserManager<User> userManager,
-            IHostingEnvironment appEnvironment)
+            IHostingEnvironment appEnvironment,
+            IFileService fileService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _context = context;
             _appEnvironment = appEnvironment;
+
+            _fileService = fileService;
         }
 
         public async Task<ActionResult> Index()
@@ -94,12 +100,11 @@ namespace MapMyLuga.Controllers
                         {
                             Date = date
                         };
-                        try
-                        {
-                            int length = 24;
-                            dateAdd.TimeZone = model.DataAdd.Substring(length, model.DataAdd.Length - length);
-                        }
-                        catch { }
+
+                        int length = 24;
+                        dateAdd.TimeZone = model.DataAdd
+                            .Substring(length, model.DataAdd.Length - length);
+
                         await _context.DateAddObjects.AddAsync(dateAdd);
                         await _context.SaveChangesAsync();
                     }
@@ -117,7 +122,7 @@ namespace MapMyLuga.Controllers
                 if (model.UploadedFiles != null)
                 {
                     fileDetailList = new List<FileDetail>(model.UploadedFiles.Count);
-                    uploadedFiles = await UppFiles(model, fileDetailList);
+                    uploadedFiles = await _fileService.UppFiles(model.UploadedFiles, fileDetailList, _appEnvironment);
 
                     files = new FilesModel()
                     {

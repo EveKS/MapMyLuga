@@ -1,0 +1,69 @@
+﻿@model MarkerMessageViewModel
+@{
+    int imageCount = 0;
+    var haseImage = Model.FilesPath != null && Model.FilesPath.Count > 0;
+
+    if (haseImage)
+    {
+        imageCount = Model.FilesPath.Count;
+    }
+}
+@if (Model != null)
+{
+
+    <div class="head-panel">
+        <div class="exit-panel exit-panel-right" id="btn-exit-panel">
+            <span class="glyphicon glyphicon-remove"></span>
+        </div>
+    </div>
+    @if (haseImage)
+    {
+        <vc:panel-image model="@Model"
+                        component-name="default">
+        </vc:panel-image>
+    }
+    else
+    {
+        <div class="visautimage-panel"></div>
+    }
+
+    <div class="title-panel">
+        <h3>@Model.Title</h3>
+    </div>
+    <div class="date-panel">
+        <span class="badge">@Model.DateAdd</span>
+    </div>
+    <div class="description-panel">
+        <hashtag action="" controller="">@Model.Description</hashtag>
+    </div>
+
+    @if (imageCount > 1)
+    {
+        <vc:panel-image model="@Model"
+                        component-name="moreImage">
+        </vc:panel-image>
+    }
+    if (imageCount == 1)
+    {
+        <vc:panel-image model="@Model"
+                        component-name="oneImage">
+        </vc:panel-image>
+    }
+}
+else
+{
+    @:error
+}
+
+@if (imageCount > 1)
+{
+    <vc:panel-image model="@Model"
+                    component-name="moreImageModal">
+    </vc:panel-image>
+}
+@if (imageCount == 1)
+{
+    <vc:panel-image model="@Model"
+                    component-name="oneImageModal">
+    </vc:panel-image>
+}
